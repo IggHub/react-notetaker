@@ -1,11 +1,12 @@
 import React from 'react';
+import NotesList from './NotesList';
 
 class Notes extends React.Component{
   render(){
     return(
       <div>
         <p>Notes</p>
-        <p>{this.props.notes}</p>
+        <NotesList notes={this.props.notes} />
       </div>
     )
   }
