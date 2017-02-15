@@ -1,5 +1,6 @@
 import React from 'react';
 import NotesList from './NotesList';
+import AddNote from './AddNote';
 
 class Notes extends React.Component{
   render(){
@@ -7,6 +8,7 @@ class Notes extends React.Component{
     return(
       <div>
         <p>Notes</p>
+        <AddNote addNote={this.props.addNote} username={this.props.username} />
         <NotesList notes={this.props.notes} />
       </div>
     )
@@ -15,6 +17,7 @@ class Notes extends React.Component{
 
 Notes.propTypes = {
   notes: React.PropTypes.array.isRequired,
-  username: React.PropTypes.string.isRequired
+  username: React.PropTypes.string.isRequired,
+  addNote: React.PropTypes.func.isRequired
 }
 export default Notes;

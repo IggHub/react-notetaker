@@ -2,9 +2,7 @@ import React from 'react';
 import Repos from './Github/Repos';
 import UserProfile from './Github/UserProfile';
 import Notes from './Notes/Notes';
-//import * as firebase from 'firebase';
 import Rebase from 're-base';
-
 
 var base = Rebase.createClass({
   apiKey: "AIzaSyA7SIMcL06ICRoe7pqCuwp7YB9Ix9o4zq4",
@@ -33,10 +31,11 @@ class Profile extends React.Component{
     //this.unbind('notes');
     base.removeBinding(this.ref);
   }
-  componentWillReceiveProps(){
-
+  handleAddNote(newNote){
+    this.setState({
+      notes: this.state.notes.concat([newNote])
+    })
   }
-
   render(){
     var username = this.props.routeParams.username;
     console.log('notes from Profile: ',this.state.notes)
@@ -52,12 +51,12 @@ class Profile extends React.Component{
           <Notes
             username={username}
             notes={this.state.notes}
+            addNote={this.handleAddNote.bind(this)}
              />
         </div>
       </div>
     )
   }
 };
-
 
 export default Profile;
