@@ -1,6 +1,6 @@
 import React from 'react';
 
-class UserProfiles extends React.Component{
+class UserProfile extends React.Component{
   render(){
     return(
       <div>User Profile
@@ -11,4 +11,9 @@ class UserProfiles extends React.Component{
   }
 }
 
-export default UserProfiles;
+UserProfile.propTypes = {
+  username: React.PropTypes.string.isRequired,
+  bio: React.PropTypes.object.isRequired
+}
+
+export default UserProfile;

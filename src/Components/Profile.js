@@ -22,17 +22,6 @@ class Profile extends React.Component{
       repos: []
     }
   }
-/*  init(){
-    const rootRef = firebase.database().ref();
-    console.log('borillo: ', rootRef);
-    const userRef = this.props.params.username;
-    console.log('userRef: ', userRef)
-    const childRef = rootRef.child(userRef);
-    this.setState({
-      notes: childRef
-    })
-  }
-*/
   componentDidMount(){
     base.syncState(this.props.params.username, {
       context: this,
