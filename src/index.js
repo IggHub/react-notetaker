@@ -4,7 +4,7 @@ import App from './Components/App';
 import Main from './Components/Main';
 import Home from './Components/Home';
 import Profile from './Components/Profile';
-import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
+import {Router, Route, Link, IndexRoute} from 'react-router';
 import * as firebase from 'firebase';
 import Rebase from 're-base';
 

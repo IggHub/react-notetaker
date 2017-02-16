@@ -33,7 +33,7 @@ class Profile extends React.Component{
   }
   handleAddNote(newNote){
     this.setState({
-      notes: this.state.notes.concat([newNote])
+      notes: this.state.notes.concat(newNote)
     })
   }
   render(){
