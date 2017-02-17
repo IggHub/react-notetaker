@@ -2,10 +2,11 @@ import React from 'react';
 
 class UserProfile extends React.Component{
   render(){
+    console.log('bio: ', this.props.bio)
     return(
       <div>User Profile
         <p>Username: {this.props.username} </p>
-        <p>Bio: {this.props.bio.name}</p>
+
       </div>
     )
   }

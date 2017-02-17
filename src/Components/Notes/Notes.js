@@ -4,7 +4,7 @@ import AddNote from './AddNote';
 
 class Notes extends React.Component{
   render(){
-    console.log('Notes from Notes: ', this.props.notes);
+    //console.log('Notes from Notes: ', this.props.notes);
     return(
       <div>
         <p>Notes</p>

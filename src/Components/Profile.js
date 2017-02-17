@@ -3,6 +3,7 @@ import Repos from './Github/Repos';
 import UserProfile from './Github/UserProfile';
 import Notes from './Notes/Notes';
 import Rebase from 're-base';
+import helpers from '../utils/helpers';
 
 var base = Rebase.createClass({
   apiKey: "AIzaSyA7SIMcL06ICRoe7pqCuwp7YB9Ix9o4zq4",
@@ -25,7 +26,14 @@ class Profile extends React.Component{
       context: this,
       state: 'notes',
       asArray: true
-    })
+    });
+    helpers.getGithubInfo(this.props.params.username)
+      .then(function(data){
+        this.setState({
+          bio: data.bio,
+          repos: data.repos
+        })
+      }.bind(this))
   }
   componentWillUnmount(){
     //this.unbind('notes');
@@ -38,7 +46,7 @@ class Profile extends React.Component{
   }
   render(){
     var username = this.props.routeParams.username;
-    console.log('notes from Profile: ',this.state.notes)
+    //console.log('notes from Profile: ',this.state.notes)
     return (
       <div className="row">
         <div className="col-md-4">
