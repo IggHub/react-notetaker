@@ -22,18 +22,7 @@ class Profile extends React.Component{
     }
   }
   componentDidMount(){
-    base.syncState(this.props.params.username, {
-      context: this,
-      state: 'notes',
-      asArray: true
-    });
-    helpers.getGithubInfo(this.props.params.username)
-      .then(function(data){
-        this.setState({
-          bio: data.bio,
-          repos: data.repos
-        })
-      }.bind(this))
+    this.init(this.props.params.username);
   }
   componentWillUnmount(){
     //this.unbind('notes');
@@ -43,6 +32,24 @@ class Profile extends React.Component{
     this.setState({
       notes: this.state.notes.concat(newNote)
     })
+  }
+  componentWillReceiveProps(nextProps){
+    this.init(nextProps.params.username)
+    //console.log('next props: ', nextProps)
+  }
+  init(username){
+    base.syncState(username, {
+      context: this,
+      state: 'notes',
+      asArray: true
+    });
+    helpers.getGithubInfo(username)
+      .then(function(data){
+        this.setState({
+          bio: data.bio,
+          repos: data.repos
+        })
+      }.bind(this))
   }
   render(){
     var username = this.props.routeParams.username;
