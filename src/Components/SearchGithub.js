@@ -30,9 +30,4 @@ SearchGithub.contextTypes = {
   router: React.PropTypes.object.isRequired
 };
 
-
-SearchGithub.contextTypes = {
-  router: React.PropTypes.object.isRequired
-}
-
 export default withRouter(SearchGithub);
